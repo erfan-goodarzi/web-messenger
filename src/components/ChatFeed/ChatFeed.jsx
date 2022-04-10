@@ -27,7 +27,6 @@ const Chatfeed = (props) => {
     const keys = Object.keys(messages);
     return keys.map((key, index) => {
       const msg = messages[key];
-      console.log(msg);
       const lastMsgKey = index === 0 ? null : keys[index - 1];
       const isMyMsg = userName === msg.sender.username;
 
