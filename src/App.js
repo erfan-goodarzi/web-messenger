@@ -12,7 +12,7 @@ function App() {
         userName='Yark'
         userSecret='4459'
         renderChatFeed={(props) => <ChatFeed {...props} />}
-        renderChatList={(props) => <Chatlist {...props} />}
+        // renderChatList={(props) => <Chatlist {...props} />}
       />
     </>
   );

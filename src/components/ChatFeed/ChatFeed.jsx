@@ -10,19 +10,22 @@ const ChatFeed = styled.div`
 `;
 const ChatTitle = styled.div`
   color: #f05454;
-  font-weight: 800;
-  font-size: 24px;
+  font-weight: 700;
+  font-size: 33px;
+  text-align: center;
+  margin-top: 22px;
 `;
 const ChatSubtitle = styled.div`
   color: #f05454;
-  font-weight: 600;
-  font-size: 12px;
-  padding-top: 4px;
+  font-weight: 400;
+  font-size: 13px;
+  text-align: center;
 `;
 
 const Chatfeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
   const chat = chats && chats[activeChat];
+  console.log(chat);
   const rendreMsg = () => {
     const keys = Object.keys(messages);
     return keys.map((key, index) => {
@@ -57,7 +60,9 @@ const Chatfeed = (props) => {
     <ChatFeed>
       <ChatTitle>{chat?.title}</ChatTitle>
       <ChatSubtitle>
-        {chat.people.map((person) => person.person.username)}
+        {new Intl.DateTimeFormat('en-US', {
+          dateStyle: 'medium',
+        }).format(new Date(chat.created))}
       </ChatSubtitle>
       {rendreMsg()}
       <div className='form-container'>

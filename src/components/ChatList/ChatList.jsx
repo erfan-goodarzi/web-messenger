@@ -5,14 +5,13 @@ import { Flex } from '@chakra-ui/react';
 import Chatcard from './ChatCard';
 
 const Chatlist = (props) => {
-  const { chats, setActiveChat, activeChat } = props;
+  const { chats, setActiveChat } = props;
 
   const setChat = (e) => {
     setActiveChat(e.target.id);
   };
   const rendreMsg = () => {
     if (chats) {
-      console.log(props, chats[activeChat]);
       const keys = Object.keys(chats);
       return keys.map((key, index) => {
         const msg = chats[key];
