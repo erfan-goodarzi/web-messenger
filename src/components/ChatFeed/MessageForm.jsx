@@ -45,7 +45,7 @@ const Messageform = (props) => {
         <Input
           value={value}
           type='text'
-          placeholder='Send a messssage'
+          placeholder='Send a message'
           onChange={handleChange}
           onSubmit={handleSubmit}
         />
