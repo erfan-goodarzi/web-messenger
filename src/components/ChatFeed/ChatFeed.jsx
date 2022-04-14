@@ -9,12 +9,12 @@ const ChatFeed = styled.div`
   background-color: rgb(240, 240, 240);
 `;
 const ChatTitle = styled.div`
-  color: #7554a0;
+  color: #f05454;
   font-weight: 800;
   font-size: 24px;
 `;
 const ChatSubtitle = styled.div`
-  color: #7554a0;
+  color: #f05454;
   font-weight: 600;
   font-size: 12px;
   padding-top: 4px;
