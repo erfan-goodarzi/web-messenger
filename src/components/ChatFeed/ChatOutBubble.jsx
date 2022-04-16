@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 export const Message = styled.div`
-  float: 'rigth';
-  margin-right: '18px';
-  color: '#3b2a50';
+  background: #f05454;
+  padding: 7px 12px;
+  font-size: 16px;
+  font-weight: 100;
+  border-radius: 50px;
+  max-width: 60%;
+  float: right;
+  margin: 4px 10px;
+  color: #f0f0f0;
+  border-top-right-radius: 2px;
 `;
 
 export const Img = styled.img`

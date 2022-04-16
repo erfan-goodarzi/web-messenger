@@ -25,7 +25,21 @@ const ChatSubtitle = styled.div`
 const Chatfeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
   const chat = chats && chats[activeChat];
-  console.log(chat);
+  const renderReadReceipts = (message, isMyMessage) =>
+    chat.people.map(
+      (person, index) =>
+        person.last_read === message.id && (
+          <div
+            key={`read_${index}`}
+            className='read-receipt'
+            style={{
+              float: isMyMessage ? 'right' : 'left',
+              backgroundImage:
+                person.person.avatar && `url(${person.person.avatar})`,
+            }}
+          />
+        )
+    );
   const rendreMsg = () => {
     const keys = Object.keys(messages);
     return keys.map((key, index) => {
@@ -34,8 +48,8 @@ const Chatfeed = (props) => {
       const isMyMsg = userName === msg.sender.username;
 
       return (
-        <div key={`msg${index}`} style={{ widt: '100%' }}>
-          <div className='msg-block'>
+        <div key={`msg_${index}`} style={{ widt: '100%' }}>
+          <div className='message-block'>
             {isMyMsg ? (
               <ChatInBubble message={msg} lastMsg={lastMsgKey} />
             ) : (
@@ -46,9 +60,9 @@ const Chatfeed = (props) => {
             className='read-receipts'
             style={{
               marginRight: isMyMsg ? '18px' : '0px',
-              marginLeft: isMyMsg ? '0px' : '60px',
+              marginLeft: isMyMsg ? '0px' : '68px',
             }}>
-            thir msg
+            {renderReadReceipts(msg, isMyMsg)}
           </div>
         </div>
       );
@@ -59,6 +73,7 @@ const Chatfeed = (props) => {
   return (
     <ChatFeed>
       <ChatTitle>{chat?.title}</ChatTitle>
+
       <ChatSubtitle>
         {new Intl.DateTimeFormat('en-US', {
           dateStyle: 'medium',
