@@ -2,6 +2,7 @@ import Messageform from './MessageForm';
 import ChatInBubble from './ChatInBubble';
 import ChatOutBubble from './ChatOutBubble';
 import styled from 'styled-components';
+
 const ChatFeed = styled.div`
   height: 100%;
   width: 100%;
@@ -25,6 +26,7 @@ const ChatSubtitle = styled.div`
 const Chatfeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
   const chat = chats && chats[activeChat];
+
   const renderReadReceipts = (message, isMyMessage) =>
     chat.people.map(
       (person, index) =>
@@ -51,16 +53,16 @@ const Chatfeed = (props) => {
         <div key={`msg_${index}`} style={{ widt: '100%' }}>
           <div className='message-block'>
             {isMyMsg ? (
-              <ChatInBubble message={msg} lastMsg={lastMsgKey} />
+              <ChatOutBubble message={msg} />
             ) : (
-              <ChatOutBubble message={msg} lastMsg={lastMsgKey} />
+              <ChatInBubble message={msg} lastMsg={messages[lastMsgKey]} />
             )}
           </div>
           <div
             className='read-receipts'
             style={{
               marginRight: isMyMsg ? '18px' : '0px',
-              marginLeft: isMyMsg ? '0px' : '68px',
+              marginLeft: isMyMsg ? '0px' : '60px',
             }}>
             {renderReadReceipts(msg, isMyMsg)}
           </div>
@@ -80,7 +82,11 @@ const Chatfeed = (props) => {
         }).format(new Date(chat.created))}
       </ChatSubtitle>
       {rendreMsg()}
-      <div className='form-container'>
+      <div
+        className='form-container'
+        style={{
+          margin: '6rem 1rem',
+        }}>
         <Messageform {...props} chatId={activeChat} />
       </div>
     </ChatFeed>
