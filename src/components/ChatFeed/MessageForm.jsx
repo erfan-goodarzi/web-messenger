@@ -43,18 +43,22 @@ const Messageform = (props) => {
     setValue(e.target.value);
     isTyping(props, chatId);
   };
+
+  const handleUpload = (e) => {
+    sendMessage(creds, chatId, { files: e.target.files, text: '' });
+  };
   return (
     <FormWrapper>
       <Form onSubmit={handleSubmit}>
-        <IconButton
-          size='sm'
-          border='none'
-          variant='outline'
-          padding={[1, 2]}
-          aria-label='Attacment'
-          color='#30475e'
-          fontSize='17px'
-          icon={<AttachmentIcon />}
+        <label htmlFor='upload-button'>
+          <AttachmentIcon cursor='pointer' />
+        </label>
+        <input
+          type='file'
+          multiple={false}
+          id='upload-button'
+          style={{ display: 'none' }}
+          onChange={handleUpload}
         />
 
         <Input
@@ -68,7 +72,6 @@ const Messageform = (props) => {
           size='sm'
           border='none'
           onClick={handleSubmit}
-          
           variant='outline'
           padding={[1, 2]}
           aria-label='Send'
@@ -77,9 +80,6 @@ const Messageform = (props) => {
           icon={<ArrowForwardIcon />}
         />
       </Form>
-      <label htmlFor='upload'>
-        <span></span>
-      </label>
     </FormWrapper>
   );
 };

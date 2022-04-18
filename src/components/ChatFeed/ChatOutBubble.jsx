@@ -15,20 +15,22 @@ const Message = styled.div`
 `;
 
 export const Img = styled.img`
-  float: left;
-  width: 42px;
-  margin: 3px 1rem;
-  border-radius: 3%;
+  float: right;
+  width: 36%;
+  margin-right: 18px;
+  object-fit: cover;
+  border-radius: 6px;
+  height: 12vw;
 `;
 
 const ChatOutBubble = ({ message }) => {
-  if (message?.attachments?.length > 0) {
-    <Img src={message.attachments[0].file} alt='message' />;
-  }
-
   return (
     <>
-      <Message>{message.text}</Message>
+      {message?.attachments?.length > 0 ? (
+        <Img src={message.attachments[0].file} alt='message' />
+      ) : (
+        <Message>{message.text}</Message>
+      )}
       <Text
         sx={{
           float: 'right',
