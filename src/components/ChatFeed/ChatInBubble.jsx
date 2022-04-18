@@ -32,7 +32,6 @@ const Avatar = styled.div`
   background-position: center;
 `;
 const ChatInBubble = ({ lastMsg, message }) => {
-  console.log(lastMsg);
   const isFirstMsg =
     !lastMsg || lastMsg.sender.username !== message.sender.username;
 

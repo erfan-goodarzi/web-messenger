@@ -33,6 +33,7 @@ const Messageform = (props) => {
   const { chatId, creds } = props;
   const handleSubmit = (e) => {
     e.preventDefault();
+    setValue('');
     const text = value.trim();
 
     if (text.length > 0) {
