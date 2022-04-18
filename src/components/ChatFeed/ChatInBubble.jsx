@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import styled from 'styled-components';
 
 const Message = styled.div`
@@ -39,6 +39,17 @@ const ChatInBubble = ({ lastMsg, message }) => {
       ) : (
         <Message sx={{ float: 'left' }}>{message.text}</Message>
       )}
+      <Text
+        sx={{
+          float: 'right',
+          fontSize: '12px',
+          margin: '19px 1px',
+          color: '#9b9b9b',
+        }}>
+        {new Intl.DateTimeFormat('en-US', { timeStyle: 'short' }).format(
+          new Date(message.created)
+        )}
+      </Text>
     </Flex>
   );
 };

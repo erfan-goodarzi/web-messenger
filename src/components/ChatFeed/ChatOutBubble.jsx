@@ -33,7 +33,7 @@ const ChatOutBubble = ({ message }) => {
         sx={{
           float: 'right',
           fontSize: '12px',
-          margin: '13px 1px',
+          margin: '18px 1px',
           color: '#9b9b9b',
         }}>
         {new Intl.DateTimeFormat('en-US', { timeStyle: 'short' }).format(
