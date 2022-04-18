@@ -13,6 +13,16 @@ const Message = styled.div`
   color: #f0f0f0;
   border-top-left-radius: 2px;
 `;
+
+export const Img = styled.img`
+  float: right;
+  width: 36%;
+  margin-right: 18px;
+  object-fit: cover;
+  border-radius: 6px;
+  height: 12vw;
+`;
+
 const Avatar = styled.div`
   background-image: ${(props) => props.imgUrl};
   width: 44px;
@@ -30,11 +40,10 @@ const ChatInBubble = ({ lastMsg, message }) => {
     <Flex>
       {isFirstMsg && <Avatar imgUrl={`url(${message.sender.avatar})`} />}
       {message.attachments && message.attachments.length > 0 ? (
-        <img
+        <Img
           src={message.attachments[0].file}
           alt='message-attachment'
-          className='message-image'
-          style={{ marginLeft: isFirstMsg ? '4px' : '48px' }}
+          style={{ marginLeft: isFirstMsg ? '4px' : '14px' }}
         />
       ) : (
         <Message sx={{ float: 'left' }}>{message.text}</Message>
