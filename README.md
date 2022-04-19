@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## [Demo](http://lamentable-behavior.surge.sh/)
+This is chat application wrapped by [Chat Engine](https://chatengine.io).
+On the login page please use this information: 
+|  username | User 1 |
+|----------:|--------|
+|  password | user1  |
+
 ## Available Scripts
 
 In the project directory, you can run:
